@@ -31,14 +31,19 @@ CHECKPOINT_MODELS=(
 )
 
 UNET_MODELS=(
-
+"https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-schnell-fp8.safetensors"
 )
+
+CLIP_MODELS=(
+"https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors"
+"https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors")
 
 LORA_MODELS=(
     #"https://civitai.com/api/download/models/16576"
 )
 
 VAE_MODELS=(
+"https://huggingface.co/black-forest-labs/FLUX.1-schnell/blob/main/ae.safetensors"
     "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
     "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
@@ -76,7 +81,7 @@ CONTROLNET_MODELS=(
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
-    if [[ ! -d /opt/environments/python ]]; then 
+    if [[ ! -d /opt/environments/python ]]; then
         export MAMBA_BASE=true
     fi
     source /opt/ai-dock/etc/environment.sh
@@ -161,7 +166,7 @@ function provisioning_get_default_workflow() {
 
 function provisioning_get_models() {
     if [[ -z $2 ]]; then return 1; fi
-    
+
     dir="$1"
     mkdir -p "$dir"
     shift
@@ -221,7 +226,7 @@ function provisioning_has_valid_civitai_token() {
 function provisioning_download() {
     if [[ -n $HF_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
         auth_token="$HF_TOKEN"
-    elif 
+    elif
         [[ -n $CIVITAI_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
         auth_token="$CIVITAI_TOKEN"
     fi
