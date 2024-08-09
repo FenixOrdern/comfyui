@@ -109,6 +109,9 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
+        provisioning_get_models \
+            "${WORKSPACE}/storage/stable_diffusion/models/clip" \
+            "${CLIP_MODELS[@]}"
     provisioning_print_end
 }
 
