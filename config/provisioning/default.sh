@@ -24,23 +24,24 @@ NODES=(
 )
 
 CHECKPOINT_MODELS=(
+"https://civitai.com/api/download/models/132760?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 "https://civitai.com/api/download/models/577919?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
 UNET_MODELS=(
-"https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors"
+
 )
 
 CLIP_MODELS=(
-"https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
-"https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors")
+
+)
 
 LORA_MODELS=(
     #"https://civitai.com/api/download/models/16576"
 )
 
 VAE_MODELS=(
-"https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors"
+
 )
 
 ESRGAN_MODELS=(
