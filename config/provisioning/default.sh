@@ -51,6 +51,7 @@ ESRGAN_MODELS=(
 )
 
 CONTROLNET_MODELS=(
+"https://huggingface.co/XLabs-AI/flux-controlnet-depth-v3/resolve/main/flux-depth-controlnet-v3.safetensors"
 "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl.safetensors"
     "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors"
     "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
@@ -73,6 +74,14 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
+)
+
+XLABS_IPADAPTER=(
+"https://huggingface.co/XLabs-AI/flux-ip-adapter/resolve/main/flux-ip-adapter.safetensors"
+)
+XLABS_CONTROLNET=(
+"https://huggingface.co/XLabs-AI/flux-controlnet-depth-v3/resolve/main/flux-depth-controlnet-v3.safetensors"
+"https://huggingface.co/XLabs-AI/flux-controlnet-canny/resolve/main/controlnet.safetensors"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
@@ -100,6 +109,12 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/controlnet" \
         "${CONTROLNET_MODELS[@]}"
+    provisioning_get_models \
+        "${WORKSPACE}/storage/stable_diffusion/models/xlabs/ipadapters" \
+        "${XLABS_IPADAPTER[@]}"
+    provisioning_get_models \
+        "${WORKSPACE}/storage/stable_diffusion/models/xlabs/controlnet" \
+        "${XLABS_CONTROLNET[@]}"
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/vae" \
         "${VAE_MODELS[@]}"
