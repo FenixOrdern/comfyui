@@ -39,6 +39,9 @@ NODES=(
 
 CHECKPOINT_MODELS=(
 "https://civitai.com/api/download/models/577919?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+"https://huggingface.co/Kijai/DynamiCrafter_pruned/resolve/main/dynamicrafter_1024_fp16_pruned.safetensors"
+"https://huggingface.co/Kijai/DynamiCrafter_pruned/resolve/main/dynamicrafter-CIL-1024-no-watermark-pruned-fp16.safetensors"
+"https://huggingface.co/Doubiiu/DynamiCrafter_512_Interp/resolve/main/model.ckpt"
 )
 
 UNET_MODELS=(
