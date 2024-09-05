@@ -19,6 +19,7 @@ PIP_PACKAGES=(
 )
 
 NODES=(
+"https://github.com/tencent/MimicMotion"
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/XLabs-AI/x-flux-comfyui"
@@ -29,6 +30,11 @@ NODES=(
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
     "https://github.com/kijai/ComfyUI-LivePortraitKJ"
     "https://github.com/kijai/ComfyUI-KJNodes"
+    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    "https://github.com/Nuked88/ComfyUI-N-Nodes"
+    "https://github.com/kijai/ComfyUI-DynamiCrafterWrapper"
+    "https://github.com/Fannovel16/ComfyUI-Video-Matting"
+
     )
 
 CHECKPOINT_MODELS=(
@@ -47,6 +53,13 @@ LORA_MODELS=(
 
 )
 
+DW_MODELS=("https://huggingface.co/yzd-v/DWPose/resolve/main/yolox_l.onnx?download=true -O models/DWPose/yolox_l.onnx
+https://huggingface.co/yzd-v/DWPose/resolve/main/dw-ll_ucoco_384.onnx?download=true -O models/DWPose/dw-ll_ucoco_384.onnx
+")
+
+GLOBAL_MODELS=(
+"https://huggingface.co/ixaac/MimicMotion/resolve/main/MimicMotion_1-1.pth"
+)
 VAE_MODELS=(
 "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors"
 )
@@ -107,9 +120,15 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
-        provisioning_get_models \
+    provisioning_get_models \
             "${WORKSPACE}/storage/stable_diffusion/models/clip" \
             "${CLIP_MODELS[@]}"
+    provisioning_get_models \
+            "${WORKSPACE}/storage/stable_diffusion/models/DWpose" \
+            "${DW_MODELS[@]}"
+    provisioning_get_models \
+            "${WORKSPACE}/storage/stable_diffusion/models" \
+            "${GLOBAL_MODELS[@]}"
     provisioning_print_end
 }
 
