@@ -27,7 +27,9 @@ NODES=(
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
     "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
-)
+    "https://github.com/kijai/ComfyUI-LivePortraitKJ"
+    "https://github.com/kijai/ComfyUI-KJNodes"
+    )
 
 CHECKPOINT_MODELS=(
 "https://civitai.com/api/download/models/577919?type=Model&format=SafeTensor&size=pruned&fp=fp16"
