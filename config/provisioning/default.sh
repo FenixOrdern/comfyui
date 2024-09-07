@@ -19,7 +19,9 @@ PIP_PACKAGES=(
 )
 
 NODES=(
-"https://github.com/tencent/MimicMotion"
+    "https://github.com/daniabib/ComfyUI_ProPainter_Nodes"
+    "https://github.com/coolzilj/ComfyUI-Photopea"
+    "https://github.com/tencent/MimicMotion"
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/XLabs-AI/x-flux-comfyui"
